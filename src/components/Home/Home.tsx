@@ -14,7 +14,7 @@ const Home: React.FC = () => {
               Inspired by <a href="https://www.youtube.com/watch?v=BAzs3amtEFA" className="text-sky-300">The Futur's Ikigai Workshop</a> on YouTube.
             </React.Fragment>
           </Typography>
-          <Button size="md">Start Activity</Button>
+          <Button size="md" additionalClasses="mt-4">Start Activity</Button>
         </React.Fragment>
       </Jumbotron>
     </div>

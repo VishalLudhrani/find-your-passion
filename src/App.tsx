@@ -4,10 +4,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const App = () => {
   return (
-    <main>
+    <>
       <Navbar />
-      <Home />
-    </main>
+      <main>
+        <Home />
+      </main>
+    </>
   );
 };
 

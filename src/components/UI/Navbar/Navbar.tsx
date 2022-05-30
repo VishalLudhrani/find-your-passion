@@ -1,9 +1,31 @@
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useUser } from "../../../hooks";
+import Button from "../Button";
+import Dropdown from "../Dropdown";
+
 const Navbar: React.FC = () => {
+  const { user } = useUser();
+  const signupHandler = () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    signInWithPopup(auth, provider).then((result) => {
+      console.log(result.user);
+    })
+  }
+  const profileSettingsList = [
+    {
+      label: "Logout",
+      onClick: () => {
+        const auth = getAuth();
+        auth.signOut();
+      }
+    }
+  ]
   
   return (
     <nav className="relative text-sky-800 bg-sky-50 py-5 flex flex-col sm:items-center sm:flex-row justify-between md:px-40 px-10">
       <div className="text-2xl font-bold">Find Your Passion</div>
-      <ul id="nav" className="hidden flex-col pt-4 sm:flex sm:flex-row sm:list-none sm:pt-0">
+      <ul id="nav" className="hidden flex-col pt-4 sm:flex sm:flex-row sm:list-none sm:pt-0 sm:items-center gap-2 sm:gap-0">
         <li>
           <a href="/about" className="mx-3">
             About
@@ -15,9 +37,21 @@ const Navbar: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="/profile" className="mx-3">
-            Profile
-          </a>
+          {
+            user ? (
+              <Dropdown 
+                label={
+                  <div className="flex gap-1">
+                    <span>{user.displayName?.split(" ")[0]}</span>
+                    <img className="rounded-full ml-1 w-[24px] h-auto" src={user.photoURL || "/images/background.jpg"} alt={user.displayName || "User profile"} />
+                  </div>
+                } 
+                list={profileSettingsList}
+              />
+            ) : (
+              <Button size="sm" onClick={signupHandler} additionalClasses="ml-4">Login</Button>
+            )
+          }
         </li>
       </ul>
       <div 
