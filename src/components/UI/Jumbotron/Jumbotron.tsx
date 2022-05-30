@@ -7,7 +7,7 @@ interface JumbotronProps {
 const Jumbotron: React.FC<JumbotronProps> = ({ children }: JumbotronProps) => {
   return (
     <div className="mx-auto container py-16 px-8">
-      <div>
+      <div className="my-32 text-center">
         {children}
       </div>
     </div>

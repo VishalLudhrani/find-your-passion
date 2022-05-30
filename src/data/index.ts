@@ -1,0 +1,1 @@
+export const WEBSITE_BACKGROUND_IMAGE_URL = "/images/background.jpg";
