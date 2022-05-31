@@ -1,4 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { Link } from "react-router-dom";
 import { useUser } from "../../../hooks";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
@@ -27,14 +28,18 @@ const Navbar: React.FC = () => {
       <div className="text-2xl font-bold">Find Your Passion</div>
       <ul id="nav" className="hidden flex-col pt-4 sm:flex sm:flex-row sm:list-none sm:pt-0 sm:items-center gap-2 sm:gap-0">
         <li>
-          <a href="/about" className="mx-3">
-            About
-          </a>
+          <Link to="/about">
+            <span className="mx-3">
+              About
+            </span>
+          </Link>
         </li>
         <li>
-          <a href="/activity" className="mx-3">
-            Activity
-          </a>
+          <Link to="/activity">
+            <span className="mx-3">
+              Activity
+            </span>
+          </Link>
         </li>
         <li>
           {
