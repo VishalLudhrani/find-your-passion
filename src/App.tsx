@@ -1,4 +1,4 @@
-import Home from "./components/Home";
+import { Home } from "./pages";
 import { Navbar } from "./components/UI";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

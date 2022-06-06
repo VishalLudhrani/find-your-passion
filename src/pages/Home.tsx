@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Jumbotron, Typography } from "../UI";
-import { WEBSITE_BACKGROUND_IMAGE_URL } from "../../data/index";
+import { Button, Jumbotron, Typography } from "../components/UI";
+import { WEBSITE_BACKGROUND_IMAGE_URL } from "../data/index";
 import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
